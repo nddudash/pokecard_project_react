@@ -10,7 +10,9 @@ class ContentBody extends React.Component {
       searchValue: "",
       pokemonObject: null,
       randomAbility: null,
+      abilityInfo: null,
       randomMove: null,
+      moveInfo: null,
     };
   }
 
@@ -28,26 +30,46 @@ class ContentBody extends React.Component {
           pokemonJson.abilities[
             Math.floor(Math.random() * pokemonJson.abilities.length)
           ].ability;
+
         let randomMove =
           pokemonJson.moves[
             Math.floor(Math.random() * pokemonJson.moves.length)
           ].move;
+
         this.setState((state, props) => ({
           pokemonObject: pokemonJson,
           randomAbility: randomAbility,
           randomMove: randomMove,
         }));
+
+        fetch(this.state.randomAbility.url)
+          .then((responseObject) => responseObject.json())
+          .then((abilityObject) => {
+            this.setState((state, props) => ({
+              abilityInfo: abilityObject.effect_entries[1].short_effect,
+            }));
+          });
+
+        fetch(this.state.randomMove.url)
+          .then((responseObject) => responseObject.json())
+          .then((moveObject) => {
+            this.setState((state, props) => ({
+              moveInfo: moveObject.effect_entries[0].short_effect,
+            }));
+          });
       });
   };
 
   render() {
     let pokemonCard;
-    (this.state.pokemonObject !== null)
+    this.state.abilityInfo && this.state.moveInfo !== null
       ? (pokemonCard = (
           <PokemonCard
             pokemonObject={this.state.pokemonObject}
             randomAbility={this.state.randomAbility}
+            abilityInfo={this.state.abilityInfo}
             randomMove={this.state.randomMove}
+            moveInfo={this.state.moveInfo}
           />
         ))
       : (pokemonCard = <span />);

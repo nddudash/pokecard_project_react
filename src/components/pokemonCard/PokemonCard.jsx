@@ -5,13 +5,13 @@ class pokemonCard extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      randomAbility: "",
-      randomAbilityInfo: "",
-      randomMove: "",
-      randomMoveInfo: "",
+      // randomAbility: "",
+      // randomAbilityInfo: "",
+      // randomMove: "",
+      // randomMoveInfo: "",
       pokemonCardObject: {
         placeholder: "url('/assets/images/cards/Basic - Blank.png')",
-        colorless: "url('/assets/images/cards/Basic - Colouress.png')",
+        colorless: "url('/assets/images/cards/Basic - Colourless.png')",
         dark: "url('/assets/images/cards/Basic - Darkness.png')",
         dragon: "url('/assets/images/cards/Basic - Dragon.png')",
         fairy: "url('/assets/images/cards/Basic - Fairy.png')",
@@ -19,51 +19,12 @@ class pokemonCard extends React.Component {
         fire: "url('/assets/images/cards/Basic - Fire.png')",
         grass: "url('/assets/images/cards/Basic - Grass.png')",
         lightning: "url('/assets/images/cards/Basic - Lightning.png')",
-        psychic: "url(c/assets/images/cards/Basic - Psychic.png')",
+        psychic: "url('/assets/images/cards/Basic - Psychic.png')",
         steel: "url('/assets/images/cards/Basic - Steel.png')",
         water: "url('/assets/images/cards/Basic - Water.png')",
       },
     };
   }
-
-  componentDidMount() {
-    this.generateRandomInfo();
-  }
-
-  componentDidUpdate(prevProps) {
-    if (prevProps.pokemonObject !== this.props.pokemonObject) {
-      this.generateRandomInfo();
-    }
-  }
-
-  generateRandomInfo() {
-    let randomAbility = this.props.pokemonObject.abilities[
-      Math.floor(Math.random() * this.props.pokemonObject.abilities.length)
-    ].ability;
-
-    if (randomAbility) {
-      this.fetchAbilityInfo()
-    }
-
-    let randomMove = this.props.pokemonObject.moves[
-      Math.floor(Math.random() * this.props.pokemonObject.moves.length)
-    ].move;
-
-    this.setState((state, props) => ({
-      randomAbility: randomAbility,
-      randomMove: randomMove,
-    }));
-  }
-
-  fetchAbilityInfo = () => {
-    fetch(this.state.randomAbility.url)
-      .then((responseObject) => responseObject.json())
-      .then((abilityObject) => {
-        this.setState((state, props) => ({
-          randomAbilityInfo: abilityObject.effect_entries[1].short_effect,
-        }));
-      });
-  };
 
   render() {
     let pokemonCardBackground;
@@ -132,17 +93,19 @@ class pokemonCard extends React.Component {
         </div>
         <div className="pokemonCardAbilityDiv">
           <div className="pokemonCardAbilityTitle">
-            {this.state.randomAbility.name}
+            {this.props.randomAbility.name}
           </div>
           <div className="pokemonCardAbilityBody">
-            {this.state.randomAbilityInfo}
+            {this.props.abilityInfo}
           </div>
         </div>
         <div className="pokemonCardMoveDiv">
           <div className="pokemonCardMoveTitle">
-            {this.state.randomMove.name}
+            {this.props.randomMove.name}
           </div>
-          <div className="pokemonCardMoveBody"></div>
+          <div className="pokemonCardMoveBody">
+            {this.props.moveInfo}
+          </div>
         </div>
       </div>
     );
