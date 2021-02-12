@@ -68,3 +68,10 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+
+Author: Nick Dudash
+References:
+    PokeAPI - https://pokeapi.co/
+    Blank Pokemon Card Templates - LevelInfinitum - https://www.deviantart.com/levelinfinitum/art/Pokemon-Blank-Card-Templates-Basic-474601445
+    Thank you to my fellow student Brian Ward for the inspiration! I'm more or less just trying to replicate his project.
