@@ -1,3 +1,15 @@
+Project Goals : PokeAPI
+Notice how the pokemon response object has a sprites property. That sprites object has multiple different properites. Notice how the front_default property is the url for a .png file. Add that image to the page by creating an img element with a .src property equal to the sprites.front_default url.
+Expand on this by adding a text input box and a button. When a user types in a pokemon name and clicks the button, it should add that pokemon's front_default sprite to the page.
+Expand this to pull more data for the entered pokemon. (more sprites, moves, height, weight, etc.)
+Notice how the pokemon?limit=100 endpoint returns an array of 100 pokemon objects, each containing a url property. Those url's will return the pokemon object corresponding to that id. Use this to create a page listing all of the pokemon in the API.
+
+Author: Nick Dudash
+References:
+    PokeAPI - https://pokeapi.co/
+    Blank Pokemon Card Templates - https://www.deviantart.com/levelinfinitum/art/Pokemon-Blank-Card-Templates-Basic-474601445
+    Thank you to my fellow student Brian Ward for the inspiration! I'm more or less just trying to replicate his project.
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
