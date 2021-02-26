@@ -82,7 +82,8 @@ class pokemonCard extends React.Component {
         }}
       >
         <div className="pokemonCardName">
-          {this.props.pokemonObject.species.name}
+          {this.props.pokemonObject.species.name[0].toUpperCase() +
+            this.props.pokemonObject.species.name.slice(1)}
         </div>
         <div className="pokemonCardSpriteDiv">
           <img
@@ -93,19 +94,17 @@ class pokemonCard extends React.Component {
         </div>
         <div className="pokemonCardAbilityDiv">
           <div className="pokemonCardAbilityTitle">
-            {this.props.randomAbility.name}
+            {this.props.randomAbility.name[0].toUpperCase() +
+              this.props.randomAbility.name.slice(1)}
           </div>
-          <div className="pokemonCardAbilityBody">
-            {this.props.abilityInfo}
-          </div>
+          <div className="pokemonCardAbilityBody">{this.props.abilityInfo}</div>
         </div>
         <div className="pokemonCardMoveDiv">
           <div className="pokemonCardMoveTitle">
-            {this.props.randomMove.name}
+            {this.props.randomMove.name[0].toUpperCase() +
+              this.props.randomMove.name.slice(1)}
           </div>
-          <div className="pokemonCardMoveBody">
-            {this.props.moveInfo}
-          </div>
+          <div className="pokemonCardMoveBody">{this.props.moveInfo}</div>
         </div>
       </div>
     );
