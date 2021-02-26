@@ -1,0 +1,52 @@
+.pokemonCardDiv {
+  display: flex;
+  flex-direction: column;
+  margin: 10px auto;
+  max-width: 420px;
+  height: 590px;
+  align-items: center;
+}
+
+.pokemonCardSpriteDiv {
+  border: solid black 1px;
+  width: 350px;
+  height: 230px;
+  position: absolute;
+  top: 95px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.pokemonCardSpriteDiv .pokemonCardSpriteImage {
+  flex-grow: 1;
+  max-width: 80%;
+}
+
+.pokemonCardDiv .pokemonCardName {
+  position: absolute;
+  top: 53px;
+  right: 51%;
+  font-weight: 1.5em;
+  font-size: 1.5em;
+}
+
+.pokemonCardDiv .pokemonCardAbilityDiv {
+  position: fixed ;
+  margin: 20px;
+  top: 350px;
+}
+
+.pokemonCardDiv .pokemonCardAbilityDiv .pokemonCardAbilityTitle {
+  font-size: 1.25em;
+}
+
+.pokemonCardDiv .pokemonCardMoveDiv {
+  position: fixed;
+  margin: 20px;
+  top: 285px;
+}
+
+.pokemonCardDiv .pokemonCardMoveDiv .pokemonCardMoveTitle {
+  font-size: 1.25em;
+}
